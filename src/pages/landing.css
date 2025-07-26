@@ -24,7 +24,7 @@ html, body {
   background-color: white;
   color: black;
   width: 100%;
-  padding: -1rem 2rem 8rem 2rem; /* antes: 6rem arriba, ahora 4rem */
+  padding: -1rem 2rem 8rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,6 +104,7 @@ html, body {
   flex-direction: column;
   align-items: center;
   padding-bottom: 3rem;
+  position: relative;
 }
 
 .footer-pies {
@@ -125,4 +126,23 @@ html, body {
   color: #555;
   font-size: 0.8rem;
 }
+
+/* BOTÓN ILUSTRADO */
+.boton-ilustrado {
+  position: absolute;
+  bottom: 4.2rem;
+  right: 2rem;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.boton-ilustrado:hover {
+  transform: scale(1.1);
+}
+
+.img-boton-cara {
+  width: 80px;
+  height: auto;
+}
+
 

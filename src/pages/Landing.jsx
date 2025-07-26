@@ -23,6 +23,11 @@ const Landing = () => {
 
       <section className="footer-section">
         <div className="footer-pies">PIES</div>
+
+        <Link to="/login" className="boton-ilustrado">
+          <img src="/assets/images/boton-cara.png" alt="Botón cara" className="img-boton-cara" />
+        </Link>
+
         <footer className="footer-text">
           <p>© 2025 ALOM. Todos los derechos reservados.</p>
         </footer>
@@ -32,6 +37,7 @@ const Landing = () => {
 };
 
 export default Landing;
+
 
 
 
