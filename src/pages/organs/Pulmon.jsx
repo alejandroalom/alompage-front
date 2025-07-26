@@ -7,11 +7,11 @@ const Pulmon = () => {
   const [experiencia, setExperiencia] = useState([]);
 
   useEffect(() => {
-    fetch('https://backend-project-break-3s17.onrender.com/education')
+    fetch('https://alompage-back.onrender.com/education')
       .then(res => res.json())
       .then(data => setEducacion(data));
 
-    fetch('https://backend-project-break-3s17.onrender.com/experience')
+    fetch('https://alompage-back.onrender.com/experience')
       .then(res => res.json())
       .then(data => setExperiencia(data));
   }, []);
@@ -32,20 +32,34 @@ const Pulmon = () => {
           <div className="pulmon-datos">
             <div className="pulmon-columna">
               <h3>Educación</h3>
-              <ul>
-                {educacion.map((item, index) => (
-                  <li key={index}>{item.nombre}</li>
-                ))}
-              </ul>
+              {educacion.length === 0 ? (
+                <p>No hay datos de educación disponibles.</p>
+              ) : (
+                educacion.map((item, index) => (
+                  <div key={index} className="pulmon-item">
+                    <h4>{item.title}</h4>
+                    <p>{item.institution} - {item.location}</p>
+                    <p>{item.startDate} – {item.endDate}</p>
+                    <p>{item.description}</p> {/* Esta línea es la nueva */}
+                  </div>
+                ))
+              )}
             </div>
 
             <div className="pulmon-columna">
               <h3>Experiencia</h3>
-              <ul>
-                {experiencia.map((item, index) => (
-                  <li key={index}>{item.nombre}</li>
-                ))}
-              </ul>
+              {experiencia.length === 0 ? (
+                <p>No hay datos de experiencia disponibles.</p>
+              ) : (
+                experiencia.map((item, index) => (
+                  <div key={index} className="pulmon-item">
+                    <h4>{item.position}</h4>
+                    <p>{item.company} - {item.location}</p>
+                    <p>{item.startDate} – {item.endDate}</p>
+                    <p>{item.description}</p>
+                  </div>
+                ))
+              )}
             </div>
           </div>
 
@@ -57,6 +71,9 @@ const Pulmon = () => {
 };
 
 export default Pulmon;
+
+
+
 
 
 

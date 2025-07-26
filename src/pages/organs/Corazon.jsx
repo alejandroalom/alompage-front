@@ -18,7 +18,9 @@ const Corazon = () => {
             Aquí irá carta de presentación. Un texto claro y potente explicando enfoque, lo que me mueve y por qué deberían contratarme.
           </p>
 
-          <Link to="/" className="boton-volver">Volver</Link>
+          <div className="volver-container">
+            <Link to="/" className="boton-volver">Volver</Link>
+          </div>
         </div>
       </div>
     </section>
@@ -26,5 +28,6 @@ const Corazon = () => {
 };
 
 export default Corazon;
+
 
 

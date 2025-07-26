@@ -41,6 +41,8 @@
 .corazon-texto {
   flex: 1 1 300px;
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
 }
 
 .corazon-texto h2 {
@@ -52,6 +54,14 @@
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 2rem;
+}
+
+.volver-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 1rem;
+  transform: translateX(-18rem); /* mismo ajuste que en hígado */
 }
 
 .boton-volver {
@@ -69,3 +79,23 @@
 .boton-volver:hover {
   background-color: #444;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .corazon-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .corazon-texto {
+    align-items: center;
+  }
+
+  .volver-container {
+    justify-content: center;
+    transform: none;
+  }
+}
+
+

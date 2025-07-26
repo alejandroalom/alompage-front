@@ -1,24 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import './higado.css';
+import { Link } from 'react-router-dom';
 
 const Higado = () => {
   const [skills, setSkills] = useState([]);
-  const [idiomas, setIdiomas] = useState([]);
-  const [datosInteres, setDatosInteres] = useState([]);
+  const [languages, setLanguages] = useState([]);
+  const [interests, setInterests] = useState([]);
 
   useEffect(() => {
-    fetch('https://backend-project-break-3s17.onrender.com/skills')
-      .then(res => res.json())
-      .then(data => setSkills(data));
+    window.scrollTo(0, 0);
 
-    fetch('https://backend-project-break-3s17.onrender.com/languages')
+    fetch('/skill')
       .then(res => res.json())
-      .then(data => setIdiomas(data));
+      .then(data => setSkills(data))
+      .catch(err => console.error('Error skills:', err));
 
-    fetch('https://backend-project-break-3s17.onrender.com/interests')
+    fetch('/language')
       .then(res => res.json())
-      .then(data => setDatosInteres(data));
+      .then(data => setLanguages(data))
+      .catch(err => console.error('Error languages:', err));
+
+    fetch('/interest')
+      .then(res => res.json())
+      .then(data => setInterests(data))
+      .catch(err => console.error('Error interests:', err));
   }, []);
 
   return (
@@ -29,46 +34,53 @@ const Higado = () => {
         </div>
 
         <div className="higado-texto">
-          <h2>Lo que me hace diferente</h2>
-          <p>
-            En esta sección muestro habilidades clave, idiomas que domino y detalles personales que aportan valor. Una combinación entre lo técnico y lo humano, lo aprendido y lo vivido.
-          </p>
+          <div className="higado-intro-texto">
+            <h2>Lo que me hace diferente</h2>
+            <p>
+              En esta sección muestro habilidades clave, idiomas que domino y detalles personales que aportan valor. Una combinación entre lo técnico y lo humano, lo aprendido y lo vivido.
+            </p>
+          </div>
+
+          <div className="bloques-back">
+            <div className="columna-izquierda">
+              <div className="bloque">
+                <h3>Soft Skills</h3>
+                <ul>
+                  {skills.map((item, index) => (
+                    <li key={index}>{item.name}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="columna-derecha">
+              <div className="bloque">
+                <h3>Idiomas</h3>
+                <ul>
+                  {languages.map((item, index) => (
+                    <li key={index}>{item.name}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="bloque">
+                <h3>Datos de Interés</h3>
+                <ul>
+                  {interests.map((item, index) => (
+                    <li key={index}>{item.name}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <Link to="/" className="boton-volver">Volver</Link>
+            </div>
+          </div>
         </div>
-
-        <div className="bloques-back">
-          <div className="bloque">
-            <h3>Soft Skills</h3>
-            <ul>
-              {skills.map((item, i) => (
-                <li key={i}>{item.nombre}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="bloque">
-            <h3>Idiomas</h3>
-            <ul>
-              {idiomas.map((item, i) => (
-                <li key={i}>{item.nombre}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="bloque">
-            <h3>Datos de Interés</h3>
-            <ul>
-              {datosInteres.map((item, i) => (
-                <li key={i}>{item.nombre}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <Link to="/" className="boton-volver">Volver</Link>
       </div>
     </section>
   );
 };
 
 export default Higado;
+
 
