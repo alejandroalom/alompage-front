@@ -10,17 +10,17 @@ const Higado = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    fetch('/skill')
+    fetch('https://alompage-back.onrender.com/skill')
       .then(res => res.json())
       .then(data => setSkills(data))
       .catch(err => console.error('Error skills:', err));
 
-    fetch('/language')
+    fetch('https://alompage-back.onrender.com/language')
       .then(res => res.json())
       .then(data => setLanguages(data))
       .catch(err => console.error('Error languages:', err));
 
-    fetch('/interest')
+    fetch('https://alompage-back.onrender.com/interest')
       .then(res => res.json())
       .then(data => setInterests(data))
       .catch(err => console.error('Error interests:', err));
@@ -58,7 +58,9 @@ const Higado = () => {
                 <h3>Idiomas</h3>
                 <ul>
                   {languages.map((item, index) => (
-                    <li key={index}>{item.name}</li>
+                    <li key={index}>
+                      {item.name} – {item.level}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -67,7 +69,7 @@ const Higado = () => {
                 <h3>Datos de Interés</h3>
                 <ul>
                   {interests.map((item, index) => (
-                    <li key={index}>{item.name}</li>
+                    <li key={index}>{item.text}</li>
                   ))}
                 </ul>
               </div>
@@ -82,5 +84,7 @@ const Higado = () => {
 };
 
 export default Higado;
+
+
 
 

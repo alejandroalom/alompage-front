@@ -86,3 +86,33 @@
   background-color: #444;
 }
 
+@media (max-width: 768px) {
+  .pulmon-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pulmon-imagen {
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .pulmon-texto {
+    text-align: center;
+  }
+
+  .pulmon-datos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pulmon-columna {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .boton-volver {
+    display: block;
+    margin: 2rem auto 0;
+  }
+}
